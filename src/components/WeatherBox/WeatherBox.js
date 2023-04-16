@@ -22,7 +22,6 @@ const WeatherBox = () => {
         if (res.status === 200) {
           return res.json()
             .then(data => {
-              console.log(data)
               const weatherData = {
                 name: data.name,
                 temp: data.main.temp,
@@ -34,6 +33,7 @@ const WeatherBox = () => {
             });
         } else {
           setError(true);
+          setPending(false);
         }
       })
   }, []);
@@ -41,9 +41,9 @@ const WeatherBox = () => {
   return (
     <section>
       <PickCity action={handleCityChange} />
-      {(weather && !pending) && <WeatherSummary {...weather} />}
+      {(weather && !pending && !error) && <WeatherSummary {...weather} />}
       { error && <ErrorBox />}
-      {(pending && !error) && <Loader />}
+      {pending && <Loader />}
     </section>
   )
 };

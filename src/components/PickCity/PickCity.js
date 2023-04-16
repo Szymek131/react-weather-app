@@ -26,7 +26,7 @@ const PickCity = ({ action }) => {
 };
 
 PickCity.propTypes = {
-  action: PropTypes.func, 
+  action: PropTypes.func.isRequired, 
 };
 
 export default PickCity;

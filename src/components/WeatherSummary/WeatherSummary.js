@@ -19,10 +19,10 @@ const WeatherSummary = ({ description, name, icon, temp}) => {
 };
 
 WeatherSummary.propTypes = {
-  description: PropTypes.string,
-  name: PropTypes.string,
-  icon: PropTypes.string,
-  temp: PropTypes.number,
+  description: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  temp: PropTypes.number.isRequired,
 };
 
 export default WeatherSummary;
