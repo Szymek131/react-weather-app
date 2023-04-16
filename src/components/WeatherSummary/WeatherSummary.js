@@ -1,20 +1,28 @@
 import styles from './WeatherSummary.module.scss';
+import PropTypes from 'prop-types';
 
-const WeatherSummary = weather => {
+const WeatherSummary = ({ description, name, icon, temp}) => {
   return (
     <section className={styles.weatherSummary}>
       <img
         className={styles.weatherIcon}
-        alt={weather.description}
-        src={`${process.env.PUBLIC_URL}/images/weather-icons/${weather.icon}.png`} />
+        alt={description}
+        src={`${process.env.PUBLIC_URL}/images/weather-icons/${icon}.png`} />
       <div className={styles.weatherInfo}>
-        <h2>{weather.name}</h2>
+        <h2>{name}</h2>
         <p>
-          <strong>Temp:</strong> {weather.temp}
+          <strong>Temp:</strong> {temp}
         </p>
       </div>
     </section>
   );
+};
+
+WeatherSummary.propTypes = {
+  description: PropTypes.string,
+  name: PropTypes.string,
+  icon: PropTypes.string,
+  temp: PropTypes.number,
 };
 
 export default WeatherSummary;
